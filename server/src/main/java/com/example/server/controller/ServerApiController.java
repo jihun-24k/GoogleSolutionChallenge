@@ -1,11 +1,11 @@
 package com.example.server.controller;
 
+import com.example.server.OurServer;
+import com.example.server.dto.SearchReq;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -20,7 +20,7 @@ public class ServerApiController {
     String serviceKey = "bX3mLyh/nh5x5sNBnzmkZ0JKn2hg1bEs7l4JphBFijlmTY1yZsqfs7BRCMvNn3OAyZAev4ey7fmyZhuUwzPLpQ==";
 
     @GetMapping("/location")
-    public String searchLocation(){
+    public String sc(){
 
         URI uri = UriComponentsBuilder
                 .fromUriString("http://apis.data.go.kr")
@@ -45,4 +45,5 @@ public class ServerApiController {
         ResponseEntity<String> result = restTemplate.exchange(req, String.class);
         return result.getBody();
     }
+
 }

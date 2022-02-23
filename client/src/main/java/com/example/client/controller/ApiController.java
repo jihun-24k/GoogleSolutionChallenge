@@ -4,6 +4,7 @@ import com.example.client.dto.UserResponse;
 import com.example.client.service.RestTemplateService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,10 +19,13 @@ public class ApiController {
         this.restTemplateService = restTemplateService;
     }
 
-    @GetMapping("location")
+    @GetMapping("/locate")
+    public UserResponse location(){
+        return restTemplateService.locate();
+    }
+
+    @PostMapping("/location")
     public UserResponse getLocation(){
         return restTemplateService.location();
     }
-
-
 }

@@ -16,10 +16,30 @@ import java.net.URI;
 @Service
 public class RestTemplateService {
 
-    public UserResponse location(){
+    public UserResponse locate(){
         URI uri = UriComponentsBuilder
                 .fromUriString("http://localhost:9090")
                 .path("/api/server/location")
+                .queryParam("userLatitude", 111)
+                .queryParam("userLongitude",222)
+                .encode()
+                .build()
+                .toUri();
+
+        log.info(uri.toString());
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<UserResponse> result = restTemplate.getForEntity(uri, UserResponse.class);
+
+        log.info("{}", result.getStatusCode());
+        log.info("{}", result.getBody());
+
+        return result.getBody();
+    }
+
+    public UserResponse location(){
+        URI uri = UriComponentsBuilder
+                .fromUriString("http://localhost:9090")
+                .path("/api/server/post")
                 .queryParam("userLatitude", 111)
                 .queryParam("userLongitude",222)
                 .encode()
