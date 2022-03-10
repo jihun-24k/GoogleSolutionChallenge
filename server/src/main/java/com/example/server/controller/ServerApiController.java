@@ -1,7 +1,9 @@
 package com.example.server.controller;
 
-import com.example.server.OurServer;
-import com.example.server.dto.SearchReq;
+import com.example.server.openapi.dto.SearchLocalRes;
+import com.example.server.viewlist.dto.ViewListDto;
+import com.example.server.viewlist.service.NinetynineService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +17,12 @@ import java.nio.charset.Charset;
 @Slf4j
 @RestController
 @RequestMapping("/api/server")
+@RequiredArgsConstructor
 public class ServerApiController {
 
     String serviceKey = "bX3mLyh/nh5x5sNBnzmkZ0JKn2hg1bEs7l4JphBFijlmTY1yZsqfs7BRCMvNn3OAyZAev4ey7fmyZhuUwzPLpQ==";
+
+    private final NinetynineService ninetynineService;
 
     @GetMapping("/location")
     public String sc(){
@@ -46,4 +51,8 @@ public class ServerApiController {
         return result.getBody();
     }
 
+    @GetMapping("/locate")
+    public SearchLocalRes search(@RequestParam double longitude, @RequestParam double latitude){
+        return ninetynineService.search(longitude, latitude);
+    }
 }

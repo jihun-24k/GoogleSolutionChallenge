@@ -1,23 +1,23 @@
-package com.example.server;
+package com.example.server.openapi;
 
-import com.example.server.dto.SearchReq;
+import com.example.server.openapi.dto.SearchLocalReq;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class OurServerTest {
+public class NinetynineClientTest {
 
     @Autowired
-    private OurServer ourServer;
+    private NinetynineClient ninetynineClient;
 
     @Test
-    public void ourServerTest(){
-        var search = new SearchReq();
+    public void ninetynineClientTest(){
+        var search = new SearchLocalReq();
         search.setLatitude(37.488132562487905);
         search.setLongitude(127.08515659273706);
 
-        var result = ourServer.getLocation(search);
+        var result = ninetynineClient.getLocation(search);
         System.out.println(result);
     }
 }

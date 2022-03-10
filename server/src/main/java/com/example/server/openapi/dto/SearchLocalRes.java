@@ -1,4 +1,4 @@
-package com.example.server.dto;
+package com.example.server.openapi.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SearchRes {
+public class SearchLocalRes {
 
     private String resultCode;
     private String resultMag;
@@ -20,29 +20,17 @@ public class SearchRes {
     @AllArgsConstructor
     public static class SearchItem {
         private int rnum;
-
         private int cnt;
-
         private float distance;
-
         private String dutyAddr;
-
         private String dutyDiv;
-
         private String dutyDivName;
-
         private String dutyName;
-
         private String dutyTel1;
-
         private String endTime;
-
         private String hpid;
-
-        private float latitude;
-
-        private float longitude;
-
+        private double latitude;
+        private double longitude;
         private String startTime;
     }
 }

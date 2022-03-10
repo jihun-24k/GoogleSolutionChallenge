@@ -1,4 +1,4 @@
-package com.example.server.dto;
+package com.example.server.openapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import org.springframework.util.MultiValueMap;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SearchReq {
+public class SearchLocalReq {
 
     @JsonProperty("WGS84_LAT")
     private double latitude;

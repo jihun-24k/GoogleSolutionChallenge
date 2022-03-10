@@ -1,0 +1,4 @@
+open_api:
+  url:
+    local: http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEgytLcinfoInqire
+  service_key: bX3mLyh/nh5x5sNBnzmkZ0JKn2hg1bEs7l4JphBFijlmTY1yZsqfs7BRCMvNn3OAyZAev4ey7fmyZhuUwzPLpQ==
